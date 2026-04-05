@@ -36,7 +36,7 @@ class AppSettings:
     custom_keywords: list[str] = field(default_factory=list)
     spacy_model: str = "en_core_web_sm"
     check_updates: bool = True
-    github_repo: str = "USERNAME/privacyguard"
+    github_repo: str = "uchihashahin01/privacyguard"
 
     @classmethod
     def from_dict(cls, payload: dict[str, Any]) -> "AppSettings":

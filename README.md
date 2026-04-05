@@ -70,7 +70,7 @@ sudo apt-get install -y \
 
 ### Option 1: AppImage (Recommended)
 
-Download the latest AppImage from [Releases](../../releases):
+Download the latest AppImage from [Releases](https://github.com/uchihashahin01/privacyguard/releases):
 
 ```bash
 chmod +x PrivacyGuard-x86_64.AppImage
@@ -86,7 +86,7 @@ sudo dpkg -i privacyguard_*.deb
 ### Option 3: Install from Source
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/privacyguard.git
+git clone https://github.com/uchihashahin01/privacyguard.git
 cd privacyguard
 python3 -m venv --system-site-packages .venv
 source .venv/bin/activate
