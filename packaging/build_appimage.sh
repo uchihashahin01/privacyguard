@@ -15,10 +15,17 @@ python -m pip install --upgrade pyinstaller
 pyinstaller --noconfirm --clean --name privacyguard privacyguard/main.py
 popd >/dev/null
 
+# Copy binary
 cp "$ROOT_DIR/dist/privacyguard/privacyguard" "$APPDIR/usr/bin/privacyguard"
+
+# Copy desktop file to both locations (root required for appimagetool)
 cp "$ROOT_DIR/packaging/privacyguard.desktop" "$APPDIR/usr/share/applications/privacyguard.desktop"
+cp "$ROOT_DIR/packaging/privacyguard.desktop" "$APPDIR/privacyguard.desktop"
+
+# Copy icon files
 if [[ -f "$ROOT_DIR/packaging/privacyguard.svg" ]]; then
   cp "$ROOT_DIR/packaging/privacyguard.svg" "$APPDIR/usr/share/icons/hicolor/scalable/apps/privacyguard.svg"
+  cp "$ROOT_DIR/packaging/privacyguard.svg" "$APPDIR/privacyguard.svg"
   cp "$ROOT_DIR/packaging/privacyguard.svg" "$APPDIR/.DirIcon"
 fi
 
