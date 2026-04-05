@@ -8,6 +8,8 @@
 
 - Update release workflow to install appimagetool and GTK dependencies
 
+- AppImage build - copy desktop file to AppDir root
+
 
 ### Maintenance
 
@@ -17,6 +19,5 @@
 
 - update changelog
 
-
-## [1.0.0] - 2026-04-05
+- update changelog
 
