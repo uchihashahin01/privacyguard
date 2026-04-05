@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Name=PrivacyGuard
+Comment=Local PII and secret redaction tool
+Exec=privacyguard
+Icon=privacyguard
+Categories=Utility;Security;
+Terminal=false
+StartupNotify=true

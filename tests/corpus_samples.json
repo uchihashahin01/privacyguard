@@ -1,0 +1,33 @@
+[
+  {
+    "name": "email_and_phone",
+    "text": "Reach me at alice@example.com and +44 20 7946 0958.",
+    "expected_any": ["EMAIL", "PHONE"]
+  },
+  {
+    "name": "openai_secret",
+    "text": "API token: sk-abcdefghijklmnopqrstuvwxyz12345",
+    "expected_any": ["OPENAI_KEY|GENERIC_SECRET"]
+  },
+  {
+    "name": "credit_card_and_ssn",
+    "text": "Card 4242 4242 4242 4242 and SSN 123-45-6789",
+    "expected_any": ["CREDIT_CARD", "SSN"]
+  },
+  {
+    "name": "address_and_ip",
+    "text": "Server at 10.0.0.5 and office at 221 Baker Street",
+    "expected_any": ["IPV4", "ADDRESS"]
+  },
+  {
+    "name": "dob_context",
+    "text": "Employee profile: DOB: 01/02/1990",
+    "expected_any": ["DOB"]
+  },
+  {
+    "name": "custom_keyword",
+    "text": "Project codename ORBITAL must stay private",
+    "custom_keywords": ["ORBITAL"],
+    "expected_any": ["CUSTOM"]
+  }
+]

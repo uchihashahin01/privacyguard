@@ -1,0 +1,5 @@
+packaging>=24.0
+platformdirs>=4.0
+requests>=2.31
+pystray>=0.19
+pillow>=10.0

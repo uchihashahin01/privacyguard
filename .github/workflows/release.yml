@@ -1,0 +1,54 @@
+name: release
+
+on:
+  push:
+    tags:
+      - "v*"
+
+permissions:
+  contents: write
+
+jobs:
+  build-release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install build deps
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y ruby ruby-dev patchelf desktop-file-utils appstream
+          sudo gem install --no-document fpm
+          python -m pip install --upgrade pip
+          pip install -e .[dev]
+          pip install pyinstaller
+
+      - name: Run tests
+        run: pytest -q
+
+      - name: Build AppImage
+        run: bash packaging/build_appimage.sh
+
+      - name: Build deb
+        run: bash packaging/build_deb.sh
+
+      - name: Create GitHub release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          tag_name="${GITHUB_REF_NAME}"
+          gh release create "$tag_name" \
+            --title "$tag_name" \
+            --generate-notes
+
+      - name: Upload release assets
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          tag_name="${GITHUB_REF_NAME}"
+          gh release upload "$tag_name" dist/*.AppImage dist/*.deb --clobber

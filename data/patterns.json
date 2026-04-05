@@ -1,0 +1,26 @@
+[
+  {
+    "name": "OPENAI_KEY",
+    "regex": "\\bsk-[A-Za-z0-9]{20,}\\b"
+  },
+  {
+    "name": "GITHUB_TOKEN",
+    "regex": "\\bgh[pousr]_[A-Za-z0-9]{20,}\\b"
+  },
+  {
+    "name": "AWS_ACCESS_KEY",
+    "regex": "\\bAKIA[0-9A-Z]{16}\\b"
+  },
+  {
+    "name": "GOOGLE_API_KEY",
+    "regex": "\\bAIza[0-9A-Za-z\\-_]{35}\\b"
+  },
+  {
+    "name": "STRIPE_KEY",
+    "regex": "\\b(?:sk|pk)_(?:live|test)_[A-Za-z0-9]{16,}\\b"
+  },
+  {
+    "name": "GENERIC_SECRET",
+    "regex": "\\b[A-Za-z0-9_\\-]{32,}\\b"
+  }
+]
